@@ -1,0 +1,22 @@
+{
+  "name": "vue-core",
+  "version": "1.0.0",
+  "description": "vue core practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyoungw/vue-core.git"
+  },
+  "author": "zyoungw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zyoungw/vue-core/issues"
+  },
+  "homepage": "https://github.com/zyoungw/vue-core#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
