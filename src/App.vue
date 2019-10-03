@@ -2,19 +2,21 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <test></test>
+    <!-- <test></test> -->
+    <recursion></recursion>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
-import test from './components/form/index'
+import Test from './components/form/index'
+import Recursion from './components/recursion'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    test
+    Recursion
   }
 }
 </script>
