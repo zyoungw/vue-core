@@ -3,7 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <test></test> -->
-    <recursion></recursion>
+    <!-- <recursion></recursion> -->
+    <tree></tree>
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 import HelloWorld from './components/HelloWorld'
 import Test from './components/form/index'
 import Recursion from './components/recursion'
+import Tree from './components/tree'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Recursion
+    Recursion,
+    Tree
   }
 }
 </script>
