@@ -23,11 +23,14 @@
 import KInput from './KInput'
 import KForm from './KForm'
 import KFormItem from './KFormItem'
+import create from '@/utils/create'
+import Notice from '@/components/Notice'
 export default {
   components: {
     KInput,
     KFormItem,
-    KForm
+    KForm,
+    Notice
   },
   data() {
     return {
@@ -44,11 +47,13 @@ export default {
   methods: {
     submitForm() {
       this.$refs.loginForm.validate(valid => {
-        if (valid) {
-          alert('请求登录！')
-        } else {
-          alert('校验失败！')
-        }
+        const msg = valid ? '请求登录！' : '校验失败！'
+        const notice = create(Notice, {
+          title: '这是一个标题',
+          message: msg,
+          duration: 1000
+        })
+        notice.show()
       })
     }
   }
