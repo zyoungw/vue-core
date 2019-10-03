@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input :value="value" @input="onInput" v-bind="$attrs">
+    <input :value="value" @input="onInput" v-bind="$attrs" />
   </div>
 </template>
 
@@ -9,18 +9,19 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
-      type: string,
+      type: String,
       default: ''
     }
   },
   methods: {
     onInput(e) {
       this.$emit('input', e.target.value)
+      // $parent 指 FormItem
+      this.$parent.$emit('validate')
     }
   }
 }
 </script>
 
 <style>
-
 </style>
