@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
-    'no-console': 'off'
+    'no-console': 'off',
+    parser: 'vue-eslint-parser'
   }
 }

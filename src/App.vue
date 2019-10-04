@@ -1,28 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <test></test> -->
-    <!-- <recursion></recursion> -->
-    <tree></tree>
+    <div id="nav">
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld'
-import Test from './components/form/index'
-import Recursion from './components/recursion'
-import Tree from './components/tree'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-    Recursion,
-    Tree
-  }
-}
-</script>
 
 <style>
 #app {
