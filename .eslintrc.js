@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     'no-console': 'off',
-    parser: 'vue-eslint-parser'
+    parser: 'vue-eslint-parser',
+    parser: 'babel-eslint'
   }
 }

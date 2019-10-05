@@ -27,7 +27,6 @@ export default {
       const tasks = this.$children
         .filter(item => item.prop)
         .map(item => item.validate())
-      console.log(tasks)
       // 所有任务必须全部成功才算校验通过，任一失败则校验失败
       Promise.all(tasks)
         .then(() => cb(true))

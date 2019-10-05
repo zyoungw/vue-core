@@ -76,10 +76,7 @@ KVueRouter.install = function(_Vue) {
   Vue = _Vue
   Vue.mixin({
     beforeCreate() {
-      console.log('this.$options', this.$options)
       if (this.$options.router) {
-        console.log('this.$options.router', this.$options.router)
-        console.log(666)
         // 确保是根组件时执行一次，将router实例放到Vue原型，以后所有组件实例就均有$router
         Vue.prototype.$router = this.$options.router
         this.$options.router.init()

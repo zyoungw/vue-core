@@ -1,3 +1,9 @@
+/**
+ * 自定义弹框组件的生成函数
+ * 配合 '@/components/form/Notice.vue使用
+ *
+ */
+
 import Vue from 'vue'
 
 // 创建函数接收要创建组件定义
@@ -6,7 +12,6 @@ function create(Component, props) {
   const vm = new Vue({
     render(h) {
       // render函数将传入组件配置对象转换为虚拟dom
-      console.log(h(Component, { props }))
       return h(Component, { props })
     }
   }).$mount() // 执行挂载函数，但未指定挂载目标，表示只执行初始化工作
