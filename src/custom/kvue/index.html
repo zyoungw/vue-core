@@ -10,20 +10,29 @@
     <div></div>
     <script src="./kvue.js"></script>
     <script>
-      console.log('8888')
       const app = new KVue({
+        el:'#app',
         data: {
-          test: 'i am test',
-          foo: {
-            bar: 'bar'
+            name: "I am test.",
+            age:12, html:'<button>这是一个按钮</button>'
+        },
+        created(){
+          console.log('开始啦')
+          setTimeout(() => {
+            this.name='我是测试'
+          }, 1500)
+        },
+        methods:{
+          changeName(){
+            this.name = '哈喽，开课吧' this.age = 1
           }
         }
       })
-      app.$data.test = 'hello, custom vue'
-      app.$data.foo.bar = 'oh my bar'
-      console.log(app.test)
-      app.test = '999'
-      console.log(app.test)
+      // app.$data.test = 'hello, custom vue'
+      // app.$data.foo.bar = 'oh my bar'
+      // console.log(app.test)
+      // app.test = '999'
+      // console.log(app.test)
     </script>
   </body>
 </html>
