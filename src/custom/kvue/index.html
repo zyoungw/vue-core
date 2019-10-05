@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>自定义Vue</title>
+  </head>
+  <body>
+    <div></div>
+    <script src="./kvue.js"></script>
+    <script>
+      console.log('8888')
+      const app = new KVue({
+        data: {
+          test: 'i am test',
+          foo: {
+            bar: 'bar'
+          }
+        }
+      })
+      app.$data.test = 'hello, custom vue'
+      app.$data.foo.bar = 'oh my bar'
+      console.log(app.test)
+      app.test = '999'
+      console.log(app.test)
+    </script>
+  </body>
+</html>
