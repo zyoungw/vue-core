@@ -1,12 +1,18 @@
 class KVue {
   constructor(options) {
-    console.log('options', options)
+    // console.log('options', options)
     // 保存选项
     this.$options = options
     // 传入data选项
     this.$data = options.data
     // 响应化
     this.observe(this.$data)
+
+    new Compile(options.el, this)
+
+    if (options.created) {
+      options.created.call(this)
+    }
   }
 
   observe(value) {
@@ -29,13 +35,13 @@ class KVue {
       },
       set(newVal) {
         this.$data[key] = newVal
-        console.log(`根${key}属性更新了`)
+        // console.log(`根${key}属性更新了`)
       }
     })
   }
 
   defineReactive(obj, key, val) {
-    console.log('defineReactive', obj, key, val)
+    // console.log('defineReactive', obj, key, val)
     // 递归
     this.observe(val)
 
@@ -50,7 +56,7 @@ class KVue {
       set(newVal) {
         if (newVal === val) return
         val = newVal
-        console.log(`${key}属性更新了`)
+        // console.log(`${key}属性更新了`)
         // 在set的时候触发dep的notify来通知所有的Watcher对象更新视图 dep.notify()
         dep.notify()
       }
@@ -66,7 +72,7 @@ class Dep {
 
   // 在deps中添加一个监听器对象
   addDep(dep) {
-    console.log('dep', dep)
+    // console.log('dep', dep)
     this.deps.push(dep)
   }
 
@@ -77,14 +83,22 @@ class Dep {
 }
 
 class Watcher {
-  constructor(vm, key) {
+  constructor(vm, key, cb) {
     // 在new一个监听器对象时将该对象赋值给Dep.target，在get中会用到
     Dep.target = this
     this.vm = vm
     this.key = key
+    // 传入更新函数cb
+    this.cb = cb
+    // 设定将当前watcher实例到Dep.target
+    Dep.target = this
+    // 读取vm的属性触发依赖收集
+    this.vm[this.key]
+    Dep.target = null
   }
 
   update() {
-    console.log(`属性${this.key}更新了`)
+    // console.log(`属性${this.key}更新了`)
+    this.cb.call(this.vm, this.vm[this.key])
   }
 }
