@@ -76,6 +76,7 @@ class Compile {
   // 调用更新函数，根据指令决定调用哪个更新器
   update(node, vm, exp, dir) {
     let updateFn = this[dir + 'Updater']
+    // 去掉收尾空格（html eslint的时候会自动加上，必须去掉，不然get不到值）
     exp = (exp && exp.trim()) || ''
     updateFn && updateFn(node, vm[exp])
     new Watcher(vm, exp, function(value) {
